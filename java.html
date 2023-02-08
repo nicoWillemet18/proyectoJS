@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProyectoFinal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark fixed-top" style="padding-left: 100px; padding-right: 100px;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">FoundIt</a>
+          <a class="navbar-brand" href="#">Inicio</a>
+          <a class="navbar-brand" href="#">Inverti acá</a>
+          <a class="navbar-brand" href="#">Financiacion</a>
+          <a class="navbar-brand" href="#">Sobre Nosotros</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      </nav>
+    <div>
+        <h2 style="text-align: center; position: relative; top: 20vh;">SIMULADOR DE INVERSIONES</h2>
+        <div id="atras" class="btn btn-outline-dark"></div>
+    </div>
+    <div style="border: solid 2px; width: 80vh; margin: auto; padding: 10px; border-radius: 5px; background-color: aliceblue; position: relative;top: 25vh;">
+        <div class="cuadro">
+            <div>
+                <input class="inver" id="inversion" type="number" placeholder="Ingrese el monto a invertir" style="width: 25vh;">
+                <button id="sig">Siguiente</button>
+            </div>
+            <div id="simular"></div>
+        </div>
+        <div style="display:flex; justify-content: center; margin-top: 10px;">
+            <ul style="display: flex; width: 90vh; justify-content: space-around;">
+                <p>Capital</p>
+                <p>Ganancia</p>
+                <p>Devolución Total</p>
+                <p>Plazo mínimo</p>
+                <p>Porcentaje de interés</p>
+            </ul>
+        </div>
+        <div style="display:flex; justify-content: center;">
+            <ul style="display: flex; width: 90vh; justify-content: space-around;">
+                <output id="Cap" style="width: 30px;"></output>
+                <output id="Gan" style="width: 30px;"></output>
+                <output id="DevT" style="width: 30px;"></output>
+                <output id="PM" style="width: 30px;"></output>
+                <output id="PI" style="width: 30px;"></output>
+            </ul>
+        </div>
+    </div>
+    <div style="position: relative; width: 80%; background-color: aliceblue; margin: auto; border-radius: 5px;">
+        <div id="plan" class="row">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
