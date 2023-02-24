@@ -1,4 +1,5 @@
 //OBJETOS Y ARRAYS
+
 class plan {
     constructor(id, nombre, interes, plazo, imagen){
         this.id = id
@@ -10,12 +11,12 @@ class plan {
 }
 const plan1 = new plan("1", "Plan A", "10%", "12 meses", "img.jpg")
 const plan2 = new plan("2", "Plan B", "20%", "18 meses", "img.jpg")
-const plan3 = new plan("3", "Plan C", "25%", "24 meses", "img.jpg")
-const plan4 = new plan("4", "Plan D", "30%", "30 meses", "img.jpg")
-const plan5 = new plan("5", "Plan E", "40%", "36 meses", "img.jpg")
-const plan6 = new plan("6", "Plan F", "45%", "42 meses", "img.jpg")
-const plan7 = new plan("7", "Plan G", "50%", "48 meses", "img.jpg")
-const plan8 = new plan("8", "Plan H", "55%", "54 meses", "img.jpg")
+const plan3 = new plan("3", "Plan C", "25%", "24 meses", "img1.jpg")
+const plan4 = new plan("4", "Plan D", "30%", "30 meses", "img1.jpg")
+const plan5 = new plan("5", "Plan E", "40%", "36 meses", "img2.jpg")
+const plan6 = new plan("6", "Plan F", "45%", "42 meses", "img2.jpg")
+const plan7 = new plan("7", "Plan G", "50%", "48 meses", "img3.jpg")
+const plan8 = new plan("8", "Plan H", "55%", "54 meses", "img3.jpg")
 
 const listaPlanes = [plan1, plan2, plan3, plan4, plan5, plan6, plan7, plan8]
 
@@ -25,8 +26,6 @@ const listaPlanes = [plan1, plan2, plan3, plan4, plan5, plan6, plan7, plan8]
 let inversionPrincipal = document.getElementById("inversion")
 //boton siguiente para mostrar planes
 let btnSiguiente = document.getElementById("sig")
-//boton para ocultar planes
-let btnAtras = document.getElementById("atras")
 // boton para reiniciar simulador
 let reiniciar = document.getElementById("reset")
 // input de monto
@@ -62,7 +61,7 @@ function toggleButton()
                 } else {
                     document.getElementById('sig').disabled = true;
                 }
-            }
+}
 
 function mostrarPlanes (){
         let planesDiv = document.getElementById("plan")
@@ -83,10 +82,9 @@ function mostrarPlanes (){
              function volver (){
                 planesDiv.innerHTML = ""
             }
+            
              seleccionado.addEventListener("click", volver)
              seleccionado.addEventListener("click", completar)
-             seleccionado.addEventListener("click", ()=>{
-             })
         }
 }           
 
@@ -99,7 +97,6 @@ function completar (e){
     plazo.innerText = `${encontrado.plazo}`
     porcentajeInteres.innerText = `${encontrado.interes}`
         const info = {
-            monto: (inversionPrincipal.value),
             capital: (capital.value), 
             ganancia: (ganancia.value),
             devolucion: (devolucion.value),
@@ -110,8 +107,28 @@ function completar (e){
         localStorage.setItem ("datos", infojson)
 } 
 
+const infoInicial = {
+    capital: "--",
+    ganancia: "--",
+    devolucion: "--",
+    plazo: "--",
+    porcentaje: "--",
+}
+
+const datosStorage = JSON.parse(localStorage.getItem("datos")) || infoInicial 
+
+function datosGuardados (datosStorage) {
+    capital.innerText = (datosStorage.capital)
+    ganancia.innerText = (datosStorage.ganancia)
+    devolucion.innerText = (datosStorage.devolucion)
+    plazo.innerText = (datosStorage.plazo)
+    porcentajeInteres.innerText = (datosStorage.porcentaje)
+}
+
+datosGuardados(datosStorage)
 
 function vaciar () {
+    localStorage.clear("datos");
     form.reset();
     porcentajeInteres.innerText = "--"
     plazo.innerText = "--"
@@ -119,12 +136,39 @@ function vaciar () {
     ganancia.innerText = "--"
     devolucion.innerText = "--"
 }
- 
+function consultar (){
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: 'Se eliminarán los resultados obtenidos',
+        text: "¿Desea continuar?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Reiniciar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          addEventListener("click", vaciar)
+          return;
+        } else if (
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+        }
+      })
+}
 
 //EVENTOS
 btnSiguiente.addEventListener("click", mostrarPlanes)
-reiniciar.addEventListener("click", vaciar)
+reiniciar.addEventListener("click", consultar)
 form.addEventListener("submit", function(event){
     event.preventDefault();
 }) 
 
+  
