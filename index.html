@@ -7,9 +7,6 @@
     <title>ProyectoFinal</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark fixed-top" style="padding-left: 100px; padding-right: 100px;">
@@ -25,32 +22,31 @@
       </nav>
     <div>
         <h2 style="text-align: center; position: relative; top: 20vh;">SIMULADOR DE INVERSIONES</h2>
-        <div id="atras" class="btn btn-outline-dark"></div>
     </div>
     <div style="border: solid 2px; width: 80vh; margin: auto; padding: 10px; border-radius: 5px; background-color: aliceblue; position: relative;top: 25vh;">
         <div class="cuadro">
-            <div>
-                <input class="inver" id="inversion" type="number" placeholder="Ingrese el monto a invertir" style="width: 25vh;">
-                <button id="sig">Siguiente</button>
+            <form id="form">
+                <input class="inver" id="inversion" type="number" onchange="toggleButton()" placeholder="Ingrese el monto a invertir en USD" style="width: 35vh;">
+            </form>
+            <div class="grid">
+              <button id="sig" disabled>Siguiente</button>
+              <button id="reset">Reiniciar</button>
             </div>
-            <div id="simular"></div>
         </div>
-        <div style="display:flex; justify-content: center; margin-top: 10px;">
-            <ul style="display: flex; width: 90vh; justify-content: space-around;">
+        <div>
+            <ul class="grid row" style="justify-content: space-around; margin-top: 10px;">
                 <p>Capital</p>
                 <p>Ganancia</p>
                 <p>Devolución Total</p>
                 <p>Plazo mínimo</p>
                 <p>Porcentaje de interés</p>
             </ul>
-        </div>
-        <div style="display:flex; justify-content: center;">
-            <ul style="display: flex; width: 90vh; justify-content: space-around;">
-                <output id="Cap" style="width: 30px;"></output>
-                <output id="Gan" style="width: 30px;"></output>
-                <output id="DevT" style="width: 30px;"></output>
-                <output id="PM" style="width: 30px;"></output>
-                <output id="PI" style="width: 30px;"></output>
+            <ul class="grid row" style="justify-content: space-around; font-size: large;">
+                <output style="padding: 10px; position: relative; right: 25px;" id="Cap">--</output>
+                <output style="padding: 10px; position: relative; right: 65px;" id="Gan">--</output>
+                <output style="padding: 10px; position: relative; right: 85px;" id="DevT">--</output>
+                <output style="padding: 10px; position: relative; right: 80px;" id="PM">--</output>
+                <output style="padding: 10px; position: relative; right: 45px;" id="PI">--</output>
             </ul>
         </div>
     </div>
@@ -58,6 +54,11 @@
         <div id="plan" class="row">
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </body>
 </html>

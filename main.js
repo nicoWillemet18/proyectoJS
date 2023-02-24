@@ -1,146 +1,3 @@
-// var socios = parseInt (prompt ("Ingresar cantidad de socios"));
-// console.log ("La cantidad de socios es de " + socios)
-
-// if (socios <= 3){
-// alert("El monto mínimo de inversión por persona es de 500 usd");
-// console.log ("El monto mínimo de inversión por persona es de 500 usd");
-// }
-// else if (socios <= 5){
-//     alert("El monto mínimo de inversión por persona es de 400 usd");
-//     console.log("El monto mínimo de inversión por persona es de 400 usd");
-//     }
-// else if (socios > 5){
-//     alert ("El monto mínimo de inversión por persona es de 300 usd");
-//     console.log("El monto mínimo de inversión por persona es de 300 usd");
-// }
-
-// class plan {
-//     constructor(nombre, interes, plazo) {
-//         this.nombre = (nombre);
-//         this.interes = (interes);
-//         this.plazo = (plazo);
-//     }
-// }
-// const planA = new plan ("Plan A", "30%", "12 meses")
-// const planB = new plan ("Plan B", "40%", "36 meses")
-// const planC = new plan ("Plan C", "50%", "48 meses")
-
-// const planes = [planA, planB, planC]
-// planes.push(plan = new plan ("plan D", "55%", "54 meses"));
-// console.log("Los planes disponibles son los siguientes:")
-// planes.forEach((planes) => {
-//     console.log(planes);
-// })
-
-// let montoTotal = 0 
-// for (let i = 1; i<=socios; i++) {
-//     let montoInvertido = parseInt (prompt ("Ingrese el monto a invertir del socio"+" " + i))
-//     montoTotal = montoTotal + montoInvertido
-// }
-// console.log (`La inversión total de todos los socios es de ${montoTotal} usd`)
-// alert (`La inversión total de todos los socios es de ${montoTotal} usd`)
-
-// const mult = (x , y) => {return x * y}
-// var elegirPlan = parseInt(prompt(`Elija su plan de inversión (Escriba el dígito incial de la opción elegida) :
-//     1 - PlanA
-//     2 - PlanB
-//     3 - PlanC
-//     4 - PlanD`))
-// switch (elegirPlan){
-//     case 1 :
-//         let interesA = 1.3
-//         let devA = mult(montoTotal,interesA)
-//         console.log (`El monto a invertir es de ${montoTotal} usd, la devolución total con un 30% extra será de ${devA} usd en un plazo de 12 meses`)
-//         alert (`El monto a invertir es de ${montoTotal} usd, la devolución total con un 30% extra será de ${devA} usd en un plazo de 12 meses`)
-//         break
-//     case 2 :
-//         let interesB = 1.4
-//         let devB = mult(montoTotal,interesB)
-//         console.log (`El monto a invertir es de ${montoTotal} usd, la devolución total con un 40% extra será de ${devB} usd en un plazo de 36 meses`)
-//         alert (`El monto a invertir es de ${montoTotal} usd, la devolución total con un 40% extra será de ${devB} usd en un plazo de 36 meses`)
-//         break
-//     case 3 :
-//         let interesC = 1.5
-//         let devC = mult(montoTotal,interesC)
-//         console.log (`El monto a invertir es de ${montoTotal} usd, la devolución total con un 50% extra será de ${devC} usd en un plazo de 48 meses`)
-//         alert (`El monto a invertir es de ${montoTotal} usd, la devolución total con un 50% extra será de ${devC} usd en un plazo de 48 meses`)
-//         break
-//     case 4 :  
-//         let interesD = 1.55
-//         let devD = mult(montoTotal,interesD)  
-//         console.log (`El monto a invertir es de ${montoTotal} usd, la devolución total con un 55% extra será de ${devD} usd en un plazo de 54 meses`) 
-//         alert (`El monto a invertir es de ${montoTotal} usd, la devolución total con un 55% extra será de ${devD} usd en un plazo de 54 meses`)
-//         break
-// }
-
-//captura del DOM
-
-//input del capital
-let inversionPricipal = document.getElementById("inversion")
-//boton siguiente para mostrar planes
-let btnSiguiente = document.getElementById("sig")
-let btnSimulador = document.createElement("button")
-//boton simular para generar resultados
-let btnCreado = document.getElementById("simular")
-//boton atrás para ocultar planes
-let btnAtras = document.getElementById("atras")
-
-// outputs
-let capital = document.getElementById("Cap")
-let ganancia = document.getElementById("Gan")
-let devolucion = document.getElementById("DevT")
-let plazo = document.getElementById("PM")
-let porcentajeInteres = document.getElementById("PI")
-
-//FUNCIONES
-
-
-function porcentaje (interes, inversionPricipal, cien){
-    resultado = n * m / 100
-}
-function agregarBoton(){
-    btnCreado.append(btnSimulador)
-}
-btnSimulador.innerText = `Simular`
-
-function mostrarPlanes (){
-    let planesDiv = document.getElementById("plan")
-         for(let plan of listaPlanes){
-             let nuevoPlanDiv = document.createElement("div")
-             nuevoPlanDiv.classList.add("col-12", "col-md-6", "col-lg-3", "mb-3")
-             nuevoPlanDiv.innerHTML = `
-             <div id="${plan.id}" class="card" style="width: 18rem;">
-             <img class="card-img-top img-fluid" style="height: 200px;"src="assets/${plan.imagen}" alt="${plan.nombre} de ${plan.interes}">
-             <h4 class="card-title">${plan.nombre}</h4>
-             <p>Interés del ${plan.interes}</p>
-             <p>Plazo: ${plan.plazo}</p>
-             <button id="planSeleccionado${plan.id}" class="btn btn-outline-dark"> Seleccionar </button>
-             </div>
-             `
-             planesDiv.appendChild(nuevoPlanDiv)
-             let seleccionado = document.getElementById(`planSeleccionado${plan.id}`)
-             function volver (){
-                planesDiv.innerHTML = ""
-            }
-             seleccionado.addEventListener("click", volver)
-             seleccionado.addEventListener("click", completar)
-            }
-}  
-
-function completar (){
-    plazo.innerText = `40%`
-    porcentajeInteres.innerText = `planSeleccionado${plan.plazo}`
-}
-
-
-//EVENTOS
-btnSiguiente.addEventListener("click", agregarBoton)
-btnSiguiente.addEventListener("click", mostrarPlanes)
-
-
-
-
-
 //OBJETOS Y ARRAYS
 class plan {
     constructor(id, nombre, interes, plazo, imagen){
@@ -161,3 +18,113 @@ const plan7 = new plan("7", "Plan G", "50%", "48 meses", "img.jpg")
 const plan8 = new plan("8", "Plan H", "55%", "54 meses", "img.jpg")
 
 const listaPlanes = [plan1, plan2, plan3, plan4, plan5, plan6, plan7, plan8]
+
+//captura del DOM
+
+//input del capital
+let inversionPrincipal = document.getElementById("inversion")
+//boton siguiente para mostrar planes
+let btnSiguiente = document.getElementById("sig")
+//boton para ocultar planes
+let btnAtras = document.getElementById("atras")
+// boton para reiniciar simulador
+let reiniciar = document.getElementById("reset")
+// input de monto
+let form = document.getElementById("form")
+
+
+
+// outputs
+let capital = document.getElementById("Cap")
+let ganancia = document.getElementById("Gan")
+let devolucion = document.getElementById("DevT")
+let plazo = document.getElementById("PM")
+let porcentajeInteres = document.getElementById("PI")
+
+//FUNCIONES
+const cien = 100;
+let resultado = 0;
+
+function suma (n, m){
+    resultado = n + m
+    return resultado
+}
+function porcentaje (n, m){
+    resultado = (n * m) / cien
+    return resultado
+}
+
+function toggleButton()
+            {
+                let inversionPrincipal = document.getElementById("inversion").value
+                if (inversionPrincipal) {
+                    document.getElementById('sig').disabled = false;
+                } else {
+                    document.getElementById('sig').disabled = true;
+                }
+            }
+
+function mostrarPlanes (){
+        let planesDiv = document.getElementById("plan")
+        for(let plan of listaPlanes){
+             let nuevoPlanDiv = document.createElement("div")
+             nuevoPlanDiv.classList.add("g-col-12", "g-col-md-6", "col-lg-4", "g-mb-6")
+             nuevoPlanDiv.innerHTML = `
+             <div id="${plan.id}" class="card" style="width: 16rem;">
+             <img class="card-img-top img-fluid" style="height: 200px;"src="assets/${plan.imagen}" alt="${plan.nombre} de ${plan.interes}">
+             <h4 class="card-title">${plan.nombre}</h4>
+             <p>Interés del ${plan.interes}</p>
+             <p>Plazo: ${plan.plazo}</p>
+             <button id="${plan.id}" class="btn btn-outline-dark"> Simular </button>
+             </div>
+             `
+             planesDiv.appendChild(nuevoPlanDiv)
+             let seleccionado = document.getElementById(`${plan.id}`)
+             function volver (){
+                planesDiv.innerHTML = ""
+            }
+             seleccionado.addEventListener("click", volver)
+             seleccionado.addEventListener("click", completar)
+             seleccionado.addEventListener("click", ()=>{
+             })
+        }
+}           
+
+function completar (e){
+    const id = e.target.id;
+    const encontrado = listaPlanes.find (p => p.id == id)
+    capital.innerText = (inversionPrincipal.value+ "usd")
+    ganancia.innerText = (porcentaje(parseInt(encontrado.interes), inversionPrincipal.value)+ "usd")
+    devolucion.innerText = (suma(parseInt(inversionPrincipal.value), parseInt(ganancia.value)) + " " + "usd")
+    plazo.innerText = `${encontrado.plazo}`
+    porcentajeInteres.innerText = `${encontrado.interes}`
+        const info = {
+            monto: (inversionPrincipal.value),
+            capital: (capital.value), 
+            ganancia: (ganancia.value),
+            devolucion: (devolucion.value),
+            plazo: (plazo.value),
+            porcentaje: (porcentajeInteres.value),
+        }
+        const infojson = JSON.stringify(info)         
+        localStorage.setItem ("datos", infojson)
+} 
+
+
+function vaciar () {
+    form.reset();
+    porcentajeInteres.innerText = "--"
+    plazo.innerText = "--"
+    capital.innerText = "--"
+    ganancia.innerText = "--"
+    devolucion.innerText = "--"
+}
+ 
+
+//EVENTOS
+btnSiguiente.addEventListener("click", mostrarPlanes)
+reiniciar.addEventListener("click", vaciar)
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+}) 
+

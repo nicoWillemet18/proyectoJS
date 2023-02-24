@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "nombre": "Plan A",
+        "interes": "10%",
+        "plazo": "12",
+        "imagen": "img.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Plan B",
+        "interes": "20%",
+        "plazo": "18",
+        "imagen": "img.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Plan C",
+        "interes": "25%",
+        "plazo": "24",
+        "imagen": "img.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Plan D",
+        "interes": "30%",
+        "plazo": "30",
+        "imagen": "img.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Plan E",
+        "interes": "40%",
+        "plazo": "36",
+        "imagen": "img.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Plan F",
+        "interes": "45%",
+        "plazo": "42",
+        "imagen": "img.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "Plan G",
+        "interes": "50%",
+        "plazo": "48",
+        "imagen": "img.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Plan H",
+        "interes": "55%",
+        "plazo": "54",
+        "imagen": "img.jpg"
+    }
+]
